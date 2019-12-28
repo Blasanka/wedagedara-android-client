@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">‌වෙද ගෙදර</string>
+    <string name="profileTabBarMenuButton">Profile Tab bar menu button</string>
+    <string name="accountSectionBackArrow">Account section back arrow</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="edit_profile_save_check_mark">Edit profile save check mark</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="edit_display_name_icon">Edit Display Name Icon</string>
+    <string name="edit_username_icon">Edit username icon</string>
+    <string name="edit_username_hint">Username</string>
+    <string name="edit_display_name_hint">Display name</string>
+    <string name="edit_website_hint">Website</string>
+    <string name="edit_website_icon">Edit Website icon</string>
+    <string name="edit_description_hint">Edit description</string>
+    <string name="edit_description_icon">Edit description icon</string>
+    <string name="private_information">Private information</string>
+    <string name="edit_email_hint">Edit email</string>
+    <string name="edit_email_icon">Edit email icon</string>
+    <string name="edit_phone_number_icon">Edit Phone Number Icon</string>
+    <string name="edit_phone_number_hint">Phone number</string>
+    <string name="wedagedara_logo">වෙද  logo</string>
+    <string name="email">Email</string>ගෙදර
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="create_account_link">No account yet? Create one</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="medi_app_bar_title">බෙහෙත් වර්ග</string>
+    <string name="places_app_bar_title">වෙද මැදුරු</string>
+    <string name="doc_app_bar_title">වෙද මහතුන්</string>
+    <string name="medication_item_grid_image">Medication Item</string>
+    <string name="search_title">සොයන්න</string>
+    <string name="search_hint">සෙයුම් යෙදුම</string>
+</resources>

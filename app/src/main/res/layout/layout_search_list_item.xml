@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="95dp"
+    card_view:cardBackgroundColor="#FFF"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="2dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="30dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:padding="15dp"
+            android:id="@+id/item_photo"
+            android:layout_centerVertical="true"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/item_photo"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Doctor's name"
+            android:textColor="#555555"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_text"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@+id/item_photo"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Location"
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/phone_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location_text"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/item_photo"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Phone Number"
+            android:textColor="#999999"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

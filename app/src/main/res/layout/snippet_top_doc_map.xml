@@ -1,0 +1,92 @@
+<merge
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:id="@+id/tvPostsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="250"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPostsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Posts"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPostsCount" />
+
+        <TextView
+            android:id="@+id/tvFollowersCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvFollowingCount"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toEndOf="@+id/tvPostsCount"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFollowersText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Followers"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvFollowingText"
+            app:layout_constraintHorizontal_bias="0.536"
+            app:layout_constraintStart_toEndOf="@+id/tvPostsText"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowersCount" />
+
+        <TextView
+            android:id="@+id/tvFollowingCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="200"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFollowingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="Following"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowingCount" />
+
+        <TextView
+            android:id="@+id/tvEditProfileText"
+            android:layout_width="164dp"
+            android:layout_height="23dp"
+            android:background="@drawable/grey_border"
+            android:text="Edit your profile"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowersText"
+            app:layout_constraintVertical_bias="0.077" />
+    </android.support.constraint.ConstraintLayout>
+
+</merge>

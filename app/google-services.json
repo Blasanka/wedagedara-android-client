@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "447931041291",
+    "firebase_url": "https://wedagedara-717e9.firebaseio.com",
+    "project_id": "wedagedara-717e9",
+    "storage_bucket": "wedagedara-717e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447931041291:android:2641e4eb51fe5be496e90e",
+        "android_client_info": {
+          "package_name": "sinhalacoder.com.wedagedara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447931041291-24kl3atpc2mddfgk26sueh8k55d171qh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sinhalacoder.com.wedagedara",
+            "certificate_hash": "3c949457a2117cbe9615081bd04d67164d296975"
+          }
+        },
+        {
+          "client_id": "447931041291-rr7n5v6g8mkhlntgnncujtgrepturkr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAipd8S78LtVEbUhpgHh3eNoD6UYRuFZbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447931041291-rr7n5v6g8mkhlntgnncujtgrepturkr9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
