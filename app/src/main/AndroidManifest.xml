@@ -23,6 +23,9 @@
         <activity android:name=".meds.MediActivity" />
         <activity android:name=".doctors.DoctorActivity" />
         <activity android:name=".places.PlaceActivity" />
+        <activity android:name=".home.SearchDetailActivity" />
+        <activity android:name=".meds.MediDetailActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

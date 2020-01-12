@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.utils.BottomNavigationViewHelper;
-import sinhalacoder.com.wedagedara.utils.GridImageAdapter;
+import sinhalacoder.com.wedagedara.meds.MediGridAdapter;
 import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
 
 public class PlaceActivity extends AppCompatActivity {
@@ -83,8 +83,8 @@ public class PlaceActivity extends AppCompatActivity {
         int gridWidgth = getResources().getDisplayMetrics().widthPixels;
         int imageWidth = gridWidgth / NUM_GRID_COLUMN;
 
-        GridImageAdapter gridImageAdapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "https://", imgUrls, mediTexts);
-        listView.setAdapter(gridImageAdapter);
+//        MediGridAdapter mediGridAdapter = new MediGridAdapter(mContext, R.layout.layout_grid_imageview, "https://", imgUrls, mediTexts);
+//        listView.setAdapter(mediGridAdapter);
     }
 
     private void setProfileImage() {

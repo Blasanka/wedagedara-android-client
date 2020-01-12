@@ -31,4 +31,15 @@
     <string name="medication_item_grid_image">Medication Item</string>
     <string name="search_title">සොයන්න</string>
     <string name="search_hint">සෙයුම් යෙදුම</string>
+    <string name="search_detail_top_bar_title">විස්තර</string>
+    <string name="search_detail_back_arrow">search Detail Back Arrow</string>
+    <string name="image_item_selected">Image of the item selected</string>
+    <string name="title">title</string>
+    <string name="subtitle">subtitle</string>
+    <string name="phone_number">phone_number</string>
+    <string name="location">location</string>
+    <string name="description">description</string>
+    <string name="imageUrl">imageUrl</string>
+    <string name="doctor">doctor</string>
+    <string name="medication">Medication</string>
 </resources>

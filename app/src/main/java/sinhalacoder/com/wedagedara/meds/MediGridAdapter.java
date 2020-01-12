@@ -1,19 +1,19 @@
-package sinhalacoder.com.wedagedara.utils;
+package sinhalacoder.com.wedagedara.meds;
 /*---------------------o----------o----------------------
  * Created by Blasanka on 08,December,2019
  * Contact: blasanka95@gmail.com
  *-------------------------<>----------------------------*/
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,24 +25,26 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import java.util.ArrayList;
 
 import sinhalacoder.com.wedagedara.R;
+import sinhalacoder.com.wedagedara.models.Medication;
+import sinhalacoder.com.wedagedara.utils.SquareImageView;
 
-public class GridImageAdapter extends ArrayAdapter<String> {
+public class MediGridAdapter extends ArrayAdapter<Medication> {
 
+    private static final String TAG = "MediGridAdapter";
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private int layoutResource;
     private String mAppend;
-    private ArrayList<String> imgUrls;
-    private ArrayList<String> mediTexts;
+    private ArrayList<Medication> meds;
 
-    public GridImageAdapter(Context mContext, int layoutResource, String mAppend, ArrayList<String> imgUrls, ArrayList<String> mediTexts) {
-        super(mContext, layoutResource, imgUrls);
+    MediGridAdapter(Context mContext, int layoutResource, String mAppend, ArrayList<Medication> meds) {
+        super(mContext, layoutResource, meds);
         this.mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.mContext = mContext;
         this.layoutResource = layoutResource;
         this.mAppend = mAppend;
-        this.imgUrls = imgUrls;
-        this.mediTexts = mediTexts;
+        this.meds = meds;
+        Log.d(TAG, "MediGridAdapter: meds list length: " + meds.size());
     }
 
     private static class ViewHolder {
@@ -54,7 +56,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        /**
+        /*
          * ViewHolder build pattern, similar to recycler view
          */
         final ViewHolder viewHolder;
@@ -68,20 +70,21 @@ public class GridImageAdapter extends ArrayAdapter<String> {
 
             convertView.setTag(viewHolder);
 
-            viewHolder.textView.setText(mediTexts.get(position));
+            viewHolder.textView.setText(meds.get(position).getName());
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    Toast.makeText(getContext(), "You Clicked "+mediTexts.get(position), Toast.LENGTH_LONG).show();
-
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, MediDetailActivity.class);
+                    intent.putExtra(context.getString(R.string.medication), meds.get(position));
+                    context.startActivity(intent);
                 }
             });
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        String imgUrl = getItem(position);
+        String imgUrl = meds.get(position).getImage_url();
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(mAppend + imgUrl, viewHolder.image, new ImageLoadingListener() {
             @Override
@@ -112,7 +115,11 @@ public class GridImageAdapter extends ArrayAdapter<String> {
                 }
             }
         });
-
         return convertView;
+    }
+
+    @Override
+    public int getCount() {
+        return meds.size();
     }
 }
