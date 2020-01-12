@@ -38,6 +38,9 @@ dependencies {
     // constraint layout for design fixed size views
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
+    // Google map view
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+
     // firebase realtime database
     implementation 'com.google.firebase:firebase-database:16.0.5'
     // FirebaseUI for Firebase Realtime Database

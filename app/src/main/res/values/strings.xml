@@ -42,4 +42,5 @@
     <string name="imageUrl">imageUrl</string>
     <string name="doctor">doctor</string>
     <string name="medication">Medication</string>
+    <string name="google_maps_key">key</string>
 </resources>

@@ -110,16 +110,8 @@ public class MediActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (mMediGridAdapter !=null){
-            mMediGridAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         if (mMediGridAdapter !=null){
             mMediGridAdapter.clear();
         }
