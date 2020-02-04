@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".home.HomeActivity">
+    tools:context=".home.DiseaseActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbarLayout">
 
-            <include layout="@layout/snippet_home_top_app_bar" />
+            <include layout="@layout/snippet_top_app_bar" />
 
         </RelativeLayout>
 

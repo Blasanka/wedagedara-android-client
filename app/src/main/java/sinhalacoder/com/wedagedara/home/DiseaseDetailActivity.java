@@ -1,4 +1,4 @@
-package sinhalacoder.com.wedagedara.meds;
+package sinhalacoder.com.wedagedara.home;
 
 
 import android.content.Context;
@@ -14,21 +14,20 @@ import android.widget.TextView;
 import java.util.Objects;
 
 import sinhalacoder.com.wedagedara.R;
-import sinhalacoder.com.wedagedara.models.Medication;
-import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
+import sinhalacoder.com.wedagedara.models.Disease;
 
-public class MediDetailActivity extends AppCompatActivity {
+public class DiseaseDetailActivity extends AppCompatActivity {
     private static final String TAG = "DoctorDetailActivity";
-    Context mContext = MediDetailActivity.this;
+    Context mContext = DiseaseDetailActivity.this;
 
-    ImageView backBt, itemImage;
-    TextView title, location, description;
+    ImageView backBt;
+    TextView name, description, cause, solution, medicationGoods, prepareMethod;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: setting layout");
-        setContentView(R.layout.activity_medi_detailview);
+        setContentView(R.layout.activity_disease_detailview);
 
         // initiate widgets
         init();
@@ -45,22 +44,25 @@ public class MediDetailActivity extends AppCompatActivity {
 
     private void setDataToWidgets() {
         Intent intent = getIntent();
-        Medication medication = Objects.requireNonNull(intent.getExtras()).getParcelable(getString(R.string.medication));
-        if (medication != null) {
-            setTextViewValue(title, medication.getName());
-            setTextViewValue(location, medication.getLocations());
-            setTextViewValue(description, medication.getDescription());
-
-            UniversalImageLoader.setImage(medication.getImage_url(), itemImage, null, "");
+        Disease disease = Objects.requireNonNull(intent.getExtras()).getParcelable(getString(R.string.disease));
+        if (disease != null) {
+            setTextViewValue(name, disease.getName());
+            setTextViewValue(cause, disease.getCause());
+            setTextViewValue(solution, disease.getSolution());
+            setTextViewValue(description, disease.getDescription());
+            setTextViewValue(medicationGoods, disease.getMedication_goods());
+            setTextViewValue(prepareMethod, disease.getPrepare_method());
         }
     }
 
     private void init() {
         Log.d(TAG, "init: initializing");
-        itemImage = findViewById(R.id.image);
-        title = findViewById(R.id.title);
-        location = findViewById(R.id.location);
+        name = findViewById(R.id.name);
         description = findViewById(R.id.description);
+        cause = findViewById(R.id.cause);
+        solution = findViewById(R.id.solution);
+        medicationGoods = findViewById(R.id.medication_goods);
+        prepareMethod = findViewById(R.id.prepare_method);
         backBt = findViewById(R.id.searchDetailBackBt);
         backBtOnClickAction();
     }

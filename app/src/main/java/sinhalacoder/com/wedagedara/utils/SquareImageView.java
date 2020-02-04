@@ -1,8 +1,5 @@
 package sinhalacoder.com.wedagedara.utils;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 08,December,2019
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
+
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

@@ -1,4 +1,4 @@
-package sinhalacoder.com.wedagedara.doctors;
+package sinhalacoder.com.wedagedara.places;
 /*---------------------o----------o----------------------
  * Created by Blasanka on 12,January,2020
  * Contact: blasanka95@gmail.com
@@ -17,8 +17,9 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.models.Doctor;
+import sinhalacoder.com.wedagedara.models.Place;
 
-public class DoctorFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Doctor, DoctorViewHolder> {
+public class PlaceFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Place, PlaceViewHolder> {
 
     private static final String TAG = "DoctorFbRecyclerAdapter";
     private Context mContext;
@@ -29,23 +30,23 @@ public class DoctorFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Docto
      *
      * @param options FirebaseRecyclerOptions
      */
-    public DoctorFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Doctor> options) {
+    PlaceFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Place> options) {
         super(options);
         this.mContext = context;
     }
 
     @NonNull
     @Override
-    public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.layout_list_item, viewGroup, false);
 
-        return new DoctorViewHolder(view);
+        return new PlaceViewHolder(view);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull DoctorViewHolder holder, int position, @NonNull Doctor model) {
-        Log.d(TAG, "firebaseSearch: PlaceViewHolder result:" + model.getName());
+    protected void onBindViewHolder(@NonNull PlaceViewHolder holder, int position, @NonNull Place model) {
+        Log.d(TAG, "firebaseSearch: PlaceViewHolder result:" + model.getPlace_name());
         holder.setDetails(mContext, model);
     }
 }

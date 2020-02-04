@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="@string/kaButtonLabel" />
+
+    <TextView
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="@string/gaButtonLabel" />
+
+    <TextView
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="ම" />
+
+    <TextView
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="ප" />
+
+    <TextView
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="@string/daButtonLabel" />
+
+    <TextView
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="ර" />
+</LinearLayout>

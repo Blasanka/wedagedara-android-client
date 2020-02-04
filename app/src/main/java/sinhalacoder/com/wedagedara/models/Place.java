@@ -4,39 +4,36 @@ package sinhalacoder.com.wedagedara.models;
  * Contact: blasanka95@gmail.com
  *-------------------------<>----------------------------*/
 
-public class Place {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Place implements Parcelable {
     // naming conventions are specified to match with firebase realtime database data format to avoid abnormal behaviours
-    private String place_name;
-    private String location;
+    private String name;
     private String duration;
     private String distance;
-    private long contact;
+    private String image_url;
+    private String description;
+    private String contact;
 
     public Place() {
     }
 
-    public Place(String place_name, String location, String duration, String distance, long contact) {
-        this.place_name = place_name;
-        this.location = location;
+    public Place(String name, String duration, String distance, String image_url, String description, String contact) {
+        this.name = name;
         this.duration = duration;
         this.distance = distance;
+        this.image_url = image_url;
+        this.description = description;
         this.contact = contact;
     }
 
     public String getPlace_name() {
-        return place_name;
+        return name;
     }
 
-    public void setPlace_name(String place_name) {
-        this.place_name = place_name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setPlace_name(String name) {
+        this.name = name;
     }
 
     public String getDuration() {
@@ -55,11 +52,64 @@ public class Place {
         this.distance = distance;
     }
 
-    public long getContact() {
+    public String getContact() {
         return contact;
     }
 
-    public void setContact(long contact) {
+    public void setContact(String contact) {
         this.contact = contact;
     }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    protected Place(Parcel in) {
+        name = in.readString();
+        duration = in.readString();
+        distance = in.readString();
+        image_url = in.readString();
+        description = in.readString();
+        contact = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(duration);
+        dest.writeString(distance);
+        dest.writeString(image_url);
+        dest.writeString(description);
+        dest.writeString(contact);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
+        @Override
+        public Place createFromParcel(Parcel in) {
+            return new Place(in);
+        }
+
+        @Override
+        public Place[] newArray(int size) {
+            return new Place[size];
+        }
+    };
 }

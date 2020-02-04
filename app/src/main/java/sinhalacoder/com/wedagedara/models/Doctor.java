@@ -10,7 +10,7 @@ import android.os.Parcelable;
 public class Doctor implements Parcelable {
     // naming conventions are specified to match with firebase realtime database data format to avoid abnormal behaviours
     private String doctor_id;
-    private String full_name;
+    private String name;
     private String location;
     private String image_url;
     private String phone_number;
@@ -18,21 +18,21 @@ public class Doctor implements Parcelable {
     private String description;
 
     // for search
-    private String search_full_name;
+    private String search_name;
     private String search_location;
 
     public Doctor() {
     }
 
-    public Doctor(String doctor_id, String full_name, String location, String image_url, String phone_number, String type, String description, String search_full_name, String search_location) {
+    public Doctor(String doctor_id, String name, String location, String image_url, String phone_number, String type, String description, String search_name, String search_location) {
         this.doctor_id = doctor_id;
-        this.full_name = full_name;
+        this.name = name;
         this.location = location;
         this.image_url = image_url;
         this.phone_number = phone_number;
         this.type = type;
         this.description = description;
-        this.search_full_name = search_full_name;
+        this.search_name = search_name;
         this.search_location = search_location;
     }
 
@@ -44,12 +44,12 @@ public class Doctor implements Parcelable {
         this.doctor_id = doctor_id;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getName() {
+        return name;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLocation() {
@@ -76,12 +76,12 @@ public class Doctor implements Parcelable {
         this.phone_number = phone_number;
     }
 
-    public String getSearch_full_name() {
-        return search_full_name;
+    public String getSearch_name() {
+        return search_name;
     }
 
-    public void setSearch_full_name(String search_full_name) {
-        this.search_full_name = search_full_name;
+    public void setSearch_name(String search_name) {
+        this.search_name = search_name;
     }
 
     public String getSearch_location() {
@@ -110,13 +110,13 @@ public class Doctor implements Parcelable {
 
     protected Doctor(Parcel in) {
         doctor_id = in.readString();
-        full_name = in.readString();
+        name = in.readString();
         location = in.readString();
         image_url = in.readString();
         phone_number = in.readString();
         type = in.readString();
         description = in.readString();
-        search_full_name = in.readString();
+        search_name = in.readString();
         search_location = in.readString();
     }
 
@@ -128,13 +128,13 @@ public class Doctor implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(doctor_id);
-        dest.writeString(full_name);
+        dest.writeString(name);
         dest.writeString(location);
         dest.writeString(image_url);
         dest.writeString(phone_number);
         dest.writeString(type);
         dest.writeString(description);
-        dest.writeString(search_full_name);
+        dest.writeString(search_name);
         dest.writeString(search_location);
     }
 

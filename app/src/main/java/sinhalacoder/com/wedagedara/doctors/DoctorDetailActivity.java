@@ -1,8 +1,5 @@
-package sinhalacoder.com.wedagedara.home;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 04,January,2020
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
+package sinhalacoder.com.wedagedara.doctors;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,9 +17,9 @@ import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.models.Doctor;
 import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
 
-public class SearchDetailActivity extends AppCompatActivity {
-    private static final String TAG = "SearchDetailActivity";
-    Context mContext = SearchDetailActivity.this;
+public class DoctorDetailActivity extends AppCompatActivity {
+    private static final String TAG = "DoctorDetailActivity";
+    Context mContext = DoctorDetailActivity.this;
 
     ImageView backBt, searchItemImage;
     TextView title, subtitle, phoneNumber, location, description;
@@ -31,7 +28,7 @@ public class SearchDetailActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: setting layout");
-        setContentView(R.layout.activity_search_detailview);
+        setContentView(R.layout.activity_doctor_detailview);
 
         // initiate widgets
         init();
@@ -50,7 +47,7 @@ public class SearchDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Doctor doctor = Objects.requireNonNull(intent.getExtras()).getParcelable(getString(R.string.doctor));
         if (doctor != null) {
-            setTextViewValue(title, doctor.getFull_name());
+            setTextViewValue(title, doctor.getName());
             setTextViewValue(phoneNumber, doctor.getPhone_number());
             setTextViewValue(location, doctor.getLocation());
             setTextViewValue(description, doctor.getDescription());

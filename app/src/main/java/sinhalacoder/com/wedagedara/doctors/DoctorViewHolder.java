@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import sinhalacoder.com.wedagedara.R;
-import sinhalacoder.com.wedagedara.home.SearchDetailActivity;
 import sinhalacoder.com.wedagedara.models.Doctor;
 import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
 
@@ -29,7 +28,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
         TextView doctorLocationTv = mView.findViewById(R.id.location_text);
         TextView phoneNumberTv = mView.findViewById(R.id.phone_number_text);
         ImageView doctorImageIv = mView.findViewById(R.id.item_photo);
-        doctorNameTv.setText(doctor.getFull_name());
+        doctorNameTv.setText(doctor.getName());
         doctorLocationTv.setText(doctor.getLocation());
         phoneNumberTv.setText(doctor.getPhone_number());
         UniversalImageLoader.setImage(doctor.getImage_url(), doctorImageIv, null, "");
@@ -38,7 +37,7 @@ public class DoctorViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 Context ctx = v.getContext();
-                Intent intent = new Intent(mView.getContext(), SearchDetailActivity.class);
+                Intent intent = new Intent(mView.getContext(), DoctorDetailActivity.class);
                 intent.putExtra(ctx.getString(R.string.doctor), doctor);
                 mView.getContext().startActivity(intent);
             }

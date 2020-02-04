@@ -11,7 +11,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.doctors.DoctorActivity;
-import sinhalacoder.com.wedagedara.home.HomeActivity;
+import sinhalacoder.com.wedagedara.home.DiseaseActivity;
 import sinhalacoder.com.wedagedara.meds.MediActivity;
 import sinhalacoder.com.wedagedara.places.PlaceActivity;
 
@@ -45,7 +45,7 @@ public class BottomNavigationViewHelper {
                         context.startActivity(placesIntent);
                         break;
                     default:
-                        Intent homeIntent = new Intent(context, HomeActivity.class); // ACTIVITY NUM 0
+                        Intent homeIntent = new Intent(context, DiseaseActivity.class); // ACTIVITY NUM 0
                         context.startActivity(homeIntent);
                         break;
                 }

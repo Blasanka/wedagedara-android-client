@@ -39,8 +39,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".home.HomeActivity">
+        <activity android:name=".home.DiseaseActivity" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -52,12 +55,11 @@
         <activity android:name=".meds.MediActivity" />
         <activity android:name=".doctors.DoctorActivity" />
         <activity android:name=".places.PlaceActivity" />
-        <activity android:name=".home.SearchDetailActivity" />
+        <activity android:name=".doctors.DoctorDetailActivity" />
         <activity android:name=".meds.MediDetailActivity" />
+        <activity android:name=".places.PlaceDetailActivity" />
+        <activity android:name=".home.DiseaseDetailActivity" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

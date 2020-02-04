@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:onClick="onKeyPressed"
+        android:text="එ" />
+
+    <TextView
+        android:id="@+id/button20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:onClick="onKeyPressed"
+        android:text="හ" />
+
+    <TextView
+        android:id="@+id/button21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:onClick="onKeyPressed"
+        android:text="ට" />
+
+    <TextView
+        android:id="@+id/button22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:onClick="onKeyPressed"
+        android:text="ජ" />
+
+    <TextView
+        android:id="@+id/button23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_key_style"
+        android:text="ඩ" />
+
+    <ImageView
+        android:id="@+id/deleteKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/keyboard_delete_key_style" />
+</LinearLayout>

@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -87,12 +87,14 @@ public class MediActivity extends AppCompatActivity {
 //        int gridWidth = getResources().getDisplayMetrics().widthPixels;
 //        int imageWidth = gridWidth / NUM_GRID_COLUMN;
 
-        mMediGridAdapter = new MediGridAdapter(mContext, R.layout.layout_grid_imageview, "https://", meds);
+        mMediGridAdapter = new MediGridAdapter(mContext, R.layout.layout_grid_imageview, "", meds);
         gridView.setAdapter(mMediGridAdapter);
     }
 
     private void setupToolbar () {
-        Toolbar toolbar = findViewById(R.id.profileToolbar);
+        Toolbar toolbar = findViewById(R.id.basicToolbar);
+        TextView title = findViewById(R.id.toolBarTitle);
+        title.setText(getString(R.string.medi_app_bar_title));
         setSupportActionBar(toolbar);
     }
 

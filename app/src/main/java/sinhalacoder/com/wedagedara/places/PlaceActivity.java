@@ -1,100 +1,113 @@
 package sinhalacoder.com.wedagedara.places;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-import java.util.ArrayList;
-
 import sinhalacoder.com.wedagedara.R;
+import sinhalacoder.com.wedagedara.models.Place;
 import sinhalacoder.com.wedagedara.utils.BottomNavigationViewHelper;
-import sinhalacoder.com.wedagedara.meds.MediGridAdapter;
-import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
 
-public class PlaceActivity extends AppCompatActivity {
+import static sinhalacoder.com.wedagedara.utils.Constants.MAPVIEW_BUNDLE_KEY;
+
+public class PlaceActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String TAG = "PlaceActivity";
     private static final int ACTIVITY_NUM = 3;
-    private static final int NUM_GRID_COLUMN = 3;
 
     final Context mContext = PlaceActivity.this;
     private ProgressBar mProgressBar;
-    private ImageView profileImageView;
+
+    private RecyclerView mResultList;
+    private DatabaseReference mPlaceDatabase;
+
+    FirebaseRecyclerAdapter<Place, PlaceViewHolder> firebaseRecyclerAdapter;
+
+    private MapView mMapView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
 
-        setupActivityWidgets();
         setupToolbar();
-        setProfileImage();
-        setupBottomNavigationView();
+        setupActivityWidgets();
+        initItemWidgets();
+        mMapView = findViewById(R.id.map_view);
+        initGoogleMap(savedInstanceState);
 
-        tempGridSetup();
+        setupBottomNavigationView();
     }
 
     private void setupActivityWidgets () {
         mProgressBar = findViewById(R.id.profileProgressBar);
         mProgressBar.setVisibility(View.GONE);
-        profileImageView = findViewById(R.id.profile_image);
+        mResultList = findViewById(R.id.result_list);
+
+        mResultList.setHasFixedSize(true);
+        mResultList.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void tempGridSetup () {
-        ArrayList<String> imageList = new ArrayList<>();
+    private void initItemWidgets() {
+        mPlaceDatabase = FirebaseDatabase.getInstance().getReference("places");
 
-        imageList.add("lh4.googleusercontent.com/--dq8niRp7W4/URquVgmXvgI/AAAAAAAAAbs/-gnuLQfNnBA/s1024/A%252520Song%252520of%252520Ice%252520and%252520Fire.jpg");
-        imageList.add("lh5.googleusercontent.com/-n7mdm7I7FGs/URqueT_BT-I/AAAAAAAAAbs/9MYmXlmpSAo/s1024/Bonzai%252520Rock%252520Sunset.jpg");
-        imageList.add("lh5.googleusercontent.com/-bvmif9a9YOQ/URquea3heHI/AAAAAAAAAbs/rcr6wyeQtAo/s1024/Bee%252520and%252520Flower.jpg");
-        imageList.add("lh3.googleusercontent.com/-s-AFpvgSeew/URquc6dF-JI/AAAAAAAAAbs/Mt3xNGRUd68/s1024/Backlit%252520Cloud.jpg");
-        imageList.add("lh6.googleusercontent.com/-UBmLbPELvoQ/URqucCdv0kI/AAAAAAAAAbs/IdNhr2VQoQs/s1024/Apre%2525CC%252580s%252520la%252520Pluie.jpg");
-        imageList.add("lh4.googleusercontent.com/-WIuWgVcU3Qw/URqubRVcj4I/AAAAAAAAAbs/YvbwgGjwdIQ/s1024/Antelope%252520Walls.jpg");
-        imageList.add("lh6.googleusercontent.com/-8HO-4vIFnlw/URquZnsFgtI/AAAAAAAAAbs/WT8jViTF7vw/s1024/Antelope%252520Hallway.jpg");
-        imageList.add("lh3.googleusercontent.com/--L0Km39l5J8/URquXHGcdNI/AAAAAAAAAbs/3ZrSJNrSomQ/s1024/Antelope%252520Butte.jpg");
-        imageList.add("lh5.googleusercontent.com/-7qZeDtRKFKc/URquWZT1gOI/AAAAAAAAAbs/hqWgteyNXsg/s1024/Another%252520Rockaway%252520Sunset.jpg");
+//        firebasePickUp();
 
-        ArrayList<String> mediList = new ArrayList<>();
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        mediList.add("nelli");
-        setupImageGrid(imageList, mediList);
+        Query allQuery = mPlaceDatabase.orderByChild("place_name");
+        setDataToAdapter(allQuery);
     }
 
-    private void setupImageGrid (ArrayList<String> imgUrls, ArrayList<String> mediTexts) {
-        ListView listView = findViewById(R.id.listView);
+    private void initGoogleMap(Bundle savedInstanceState) {
+        // *** IMPORTANT ***
+        // MapView requires that the Bundle you pass contain _ONLY_ MapView SDK
+        // objects or sub-Bundles.
+        Bundle mapViewBundle = null;
+        if (savedInstanceState != null) {
+            mapViewBundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
+        }
 
-        int gridWidgth = getResources().getDisplayMetrics().widthPixels;
-        int imageWidth = gridWidgth / NUM_GRID_COLUMN;
-
-//        MediGridAdapter mediGridAdapter = new MediGridAdapter(mContext, R.layout.layout_grid_imageview, "https://", imgUrls, mediTexts);
-//        listView.setAdapter(mediGridAdapter);
+        mMapView.onCreate(mapViewBundle);
+        mMapView.getMapAsync(this);
     }
 
-    private void setProfileImage() {
-        Log.d(TAG, "setProfileImage: setting profile photo");
-        String imgURL = "static.libsyn.com/p/assets/6/5/6/3/6563353b5ef2629d/androidcentral-podcast-1400.jpg";
-        UniversalImageLoader.setImage(imgURL, profileImageView, mProgressBar, "http://");
+    private void setDataToAdapter(Query firebaseSearchQuery) {
+        FirebaseRecyclerOptions<Place> options =
+                new FirebaseRecyclerOptions.Builder<Place>()
+                        .setQuery(firebaseSearchQuery, Place.class)
+                        .build();
+
+        firebaseRecyclerAdapter = new PlaceFirebaseRecyclerAdapter(mContext, options);
+        firebaseRecyclerAdapter.startListening();
+        mResultList.setAdapter(firebaseRecyclerAdapter);
     }
-    
+
     private void setupToolbar () {
-        Toolbar toolbar = findViewById(R.id.profileToolbar);
+        Toolbar toolbar = findViewById(R.id.basicToolbar);
+        TextView title = findViewById(R.id.toolBarTitle);
+        title.setText(getString(R.string.places_app_bar_title));
         setSupportActionBar(toolbar);
     }
 
@@ -109,5 +122,65 @@ public class PlaceActivity extends AppCompatActivity {
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (firebaseRecyclerAdapter !=null){
+            firebaseRecyclerAdapter.startListening();
+        }
+        mMapView.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (firebaseRecyclerAdapter !=null){
+            firebaseRecyclerAdapter.stopListening();
+        }
+        mMapView.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mMapView.onResume();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        map.setMyLocationEnabled(true);
+    }
+
+    @Override
+    public void onPause() {
+        mMapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mMapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mMapView.onLowMemory();
     }
 }

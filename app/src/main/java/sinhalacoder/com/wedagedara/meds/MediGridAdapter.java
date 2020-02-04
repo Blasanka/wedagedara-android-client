@@ -1,8 +1,5 @@
 package sinhalacoder.com.wedagedara.meds;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 08,December,2019
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;

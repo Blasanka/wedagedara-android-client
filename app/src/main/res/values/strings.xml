@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">‌වෙද ගෙදර</string>
     <string name="profileTabBarMenuButton">Profile Tab bar menu button</string>
@@ -24,12 +25,12 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="create_account_link">No account yet? Create one</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="medi_app_bar_title">බෙහෙත් වර්ග</string>
     <string name="places_app_bar_title">වෙද මැදුරු</string>
     <string name="doc_app_bar_title">වෙද මහතුන්</string>
     <string name="medication_item_grid_image">Medication Item</string>
-    <string name="search_title">සොයන්න</string>
+    <string name="search_title">රෝගයේ නම</string>
     <string name="search_hint">සෙයුම් යෙදුම</string>
     <string name="search_detail_top_bar_title">විස්තර</string>
     <string name="search_detail_back_arrow">search Detail Back Arrow</string>
@@ -41,6 +42,17 @@
     <string name="description">description</string>
     <string name="imageUrl">imageUrl</string>
     <string name="doctor">doctor</string>
+    <string name="disease">disease</string>
     <string name="medication">Medication</string>
-    <string name="google_maps_key">key</string>
+    <string name="place">place</string>
+    <string name="google_maps_key">AIzaSyAx7OFZWmhUOa0nM2KEQHj6asz0SzD_3Yk</string>
+
+    <!--    Keyboard sinhala words-->
+    <string name="ahButtonLabel">අ</string>
+    <string name="aehButtonLabel">ආ</string>
+    <string name="uhButtonLabel">උ</string>
+    <string name="kaButtonLabel">ක</string>
+    <string name="gaButtonLabel">ග</string>
+    <string name="daButtonLabel">ද</string>
+    <string name="delete_key">Delete key</string>
 </resources>

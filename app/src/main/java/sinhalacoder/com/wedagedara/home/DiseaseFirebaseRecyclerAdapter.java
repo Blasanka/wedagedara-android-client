@@ -1,8 +1,4 @@
-package sinhalacoder.com.wedagedara.doctors;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 12,January,2020
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
+package sinhalacoder.com.wedagedara.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -16,9 +12,9 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import sinhalacoder.com.wedagedara.R;
-import sinhalacoder.com.wedagedara.models.Doctor;
+import sinhalacoder.com.wedagedara.models.Disease;
 
-public class DoctorFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Doctor, DoctorViewHolder> {
+public class DiseaseFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Disease, DiseaseViewHolder> {
 
     private static final String TAG = "DoctorFbRecyclerAdapter";
     private Context mContext;
@@ -29,23 +25,23 @@ public class DoctorFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Docto
      *
      * @param options FirebaseRecyclerOptions
      */
-    public DoctorFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Doctor> options) {
+    public DiseaseFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Disease> options) {
         super(options);
         this.mContext = context;
     }
 
     @NonNull
     @Override
-    public DoctorViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public DiseaseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.layout_list_item, viewGroup, false);
+                .inflate(R.layout.layout_disease_card, viewGroup, false);
 
-        return new DoctorViewHolder(view);
+        return new DiseaseViewHolder(view);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull DoctorViewHolder holder, int position, @NonNull Doctor model) {
+    protected void onBindViewHolder(@NonNull DiseaseViewHolder holder, int position, @NonNull Disease model) {
         Log.d(TAG, "firebaseSearch: PlaceViewHolder result:" + model.getName());
-        holder.setDetails(mContext, model);
+        holder.setDetails(model);
     }
 }

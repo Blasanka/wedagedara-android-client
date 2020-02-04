@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/relLayoutAppBar">
-            <include layout="@layout/snippet_doc_top_app_bar" />
+            <include layout="@layout/snippet_top_app_bar" />
         </RelativeLayout>
 
         <!--  middle section -->
