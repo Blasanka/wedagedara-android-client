@@ -1,8 +1,4 @@
 package sinhalacoder.com.wedagedara.places;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 12,January,2020
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +10,7 @@ import android.widget.TextView;
 import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.models.Place;
 import sinhalacoder.com.wedagedara.utils.UniversalImageLoader;
+import sinhalacoder.com.wedagedara.utils.WedaGedaraAdapterNotifier;
 
 class PlaceViewHolder extends RecyclerView.ViewHolder {
     private View mView;
@@ -28,9 +25,9 @@ class PlaceViewHolder extends RecyclerView.ViewHolder {
         TextView placeLocationTv = mView.findViewById(R.id.location_text);
         TextView contactTv = mView.findViewById(R.id.phone_number_text);
         ImageView placeImageIv = mView.findViewById(R.id.item_photo);
-        placeNameTv.setText(place.getPlace_name());
+        placeNameTv.setText(place.getName());
         placeLocationTv.setText(place.getDuration());
-        contactTv.setText(place.getContact());
+        contactTv.setText(place.getPhone_number());
         UniversalImageLoader.setImage(place.getImage_url(), placeImageIv, null, "");
 //            Glide.with(ctx).load(doctorImage).into(user_image);
         mView.setOnClickListener(new View.OnClickListener() {

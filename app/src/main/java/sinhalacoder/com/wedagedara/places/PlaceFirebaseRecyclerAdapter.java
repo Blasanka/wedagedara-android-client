@@ -1,8 +1,4 @@
 package sinhalacoder.com.wedagedara.places;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 12,January,2020
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -16,23 +12,27 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import sinhalacoder.com.wedagedara.R;
-import sinhalacoder.com.wedagedara.models.Doctor;
 import sinhalacoder.com.wedagedara.models.Place;
+import sinhalacoder.com.wedagedara.utils.WedaGedaraAdapterNotifier;
 
 public class PlaceFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Place, PlaceViewHolder> {
 
     private static final String TAG = "DoctorFbRecyclerAdapter";
     private Context mContext;
+    private WedaGedaraAdapterNotifier<Place> mPlaceAdapterNotifier;
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
      * {@link FirebaseRecyclerOptions} for configuration options.
+     * {@link WedaGedaraAdapterNotifier} for notifying the map markers.
      *
      * @param options FirebaseRecyclerOptions
+     * @param placeAdapterNotifier WedaGedaraAdapterNotifier<Place>
      */
-    PlaceFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Place> options) {
+    PlaceFirebaseRecyclerAdapter(Context context, @NonNull FirebaseRecyclerOptions<Place> options, WedaGedaraAdapterNotifier<Place> placeAdapterNotifier) {
         super(options);
         this.mContext = context;
+        mPlaceAdapterNotifier = placeAdapterNotifier;
     }
 
     @NonNull
@@ -46,7 +46,8 @@ public class PlaceFirebaseRecyclerAdapter extends FirebaseRecyclerAdapter<Place,
 
     @Override
     protected void onBindViewHolder(@NonNull PlaceViewHolder holder, int position, @NonNull Place model) {
-        Log.d(TAG, "firebaseSearch: PlaceViewHolder result:" + model.getPlace_name());
+        Log.d(TAG, "firebaseSearch: PlaceViewHolder result:" + model.getName());
         holder.setDetails(mContext, model);
+        mPlaceAdapterNotifier.addMarker(model);
     }
 }

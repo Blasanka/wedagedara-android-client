@@ -41,6 +41,9 @@ dependencies {
     // Google map view
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
 
+    // location service
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+
     // firebase realtime database
     implementation 'com.google.firebase:firebase-database:16.0.5'
     // FirebaseUI for Firebase Realtime Database

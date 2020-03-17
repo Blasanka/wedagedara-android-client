@@ -1,38 +1,40 @@
 package sinhalacoder.com.wedagedara.models;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 27,December,2019
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Place implements Parcelable {
+public class Place extends WedaGedaraModel implements Parcelable {
     // naming conventions are specified to match with firebase realtime database data format to avoid abnormal behaviours
     private String name;
     private String duration;
     private String distance;
     private String image_url;
     private String description;
-    private String contact;
+    private String phone_number;
+    private double latitude;
+    private double longitude;
 
     public Place() {
+        super();
     }
 
-    public Place(String name, String duration, String distance, String image_url, String description, String contact) {
+    public Place(String name, String duration, String distance, String image_url, String description, String phone_number, double latitude, double longitude) {
+        super(latitude, longitude);
         this.name = name;
         this.duration = duration;
         this.distance = distance;
         this.image_url = image_url;
         this.description = description;
-        this.contact = contact;
+        this.phone_number = phone_number;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public String getPlace_name() {
+    public String getName() {
         return name;
     }
 
-    public void setPlace_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -52,14 +54,6 @@ public class Place implements Parcelable {
         this.distance = distance;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
     public String getImage_url() {
         return image_url;
     }
@@ -76,13 +70,39 @@ public class Place implements Parcelable {
         this.description = description;
     }
 
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     protected Place(Parcel in) {
         name = in.readString();
         duration = in.readString();
         distance = in.readString();
         image_url = in.readString();
         description = in.readString();
-        contact = in.readString();
+        phone_number = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
     }
 
     @Override
@@ -97,7 +117,9 @@ public class Place implements Parcelable {
         dest.writeString(distance);
         dest.writeString(image_url);
         dest.writeString(description);
-        dest.writeString(contact);
+        dest.writeString(phone_number);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
     }
 
     @SuppressWarnings("unused")

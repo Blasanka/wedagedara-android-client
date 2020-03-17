@@ -66,7 +66,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Place place = Objects.requireNonNull(intent.getExtras()).getParcelable(getString(R.string.place));
         if (place != null) {
-            setTextViewValue(title, place.getPlace_name());
+            setTextViewValue(title, place.getName());
             setTextViewValue(duration, place.getDuration());
             setTextViewValue(description, place.getDescription());
 

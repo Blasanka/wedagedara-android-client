@@ -1,13 +1,9 @@
 package sinhalacoder.com.wedagedara.models;
-/*---------------------o----------o----------------------
- * Created by Blasanka on 27,December,2019
- * Contact: blasanka95@gmail.com
- *-------------------------<>----------------------------*/
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Doctor implements Parcelable {
+public class Doctor extends WedaGedaraModel implements Parcelable {
     // naming conventions are specified to match with firebase realtime database data format to avoid abnormal behaviours
     private String doctor_id;
     private String name;
@@ -16,15 +12,19 @@ public class Doctor implements Parcelable {
     private String phone_number;
     private String type; // paramparika, rajaye anumatha
     private String description;
+    private double latitude;
+    private double longitude;
 
     // for search
     private String search_name;
     private String search_location;
 
     public Doctor() {
+        super();
     }
 
-    public Doctor(String doctor_id, String name, String location, String image_url, String phone_number, String type, String description, String search_name, String search_location) {
+    public Doctor(String doctor_id, String name, String location, String image_url, String phone_number, String type, String description, double latitude, double longitude, String search_name, String search_location) {
+        super(latitude, longitude);
         this.doctor_id = doctor_id;
         this.name = name;
         this.location = location;
@@ -32,6 +32,8 @@ public class Doctor implements Parcelable {
         this.phone_number = phone_number;
         this.type = type;
         this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.search_name = search_name;
         this.search_location = search_location;
     }
@@ -76,22 +78,6 @@ public class Doctor implements Parcelable {
         this.phone_number = phone_number;
     }
 
-    public String getSearch_name() {
-        return search_name;
-    }
-
-    public void setSearch_name(String search_name) {
-        this.search_name = search_name;
-    }
-
-    public String getSearch_location() {
-        return search_location;
-    }
-
-    public void setSearch_location(String search_location) {
-        this.search_location = search_location;
-    }
-
     public String getType() {
         return type;
     }
@@ -108,6 +94,38 @@ public class Doctor implements Parcelable {
         this.description = description;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getSearch_name() {
+        return search_name;
+    }
+
+    public void setSearch_name(String search_name) {
+        this.search_name = search_name;
+    }
+
+    public String getSearch_location() {
+        return search_location;
+    }
+
+    public void setSearch_location(String search_location) {
+        this.search_location = search_location;
+    }
+
     protected Doctor(Parcel in) {
         doctor_id = in.readString();
         name = in.readString();
@@ -116,6 +134,8 @@ public class Doctor implements Parcelable {
         phone_number = in.readString();
         type = in.readString();
         description = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
         search_name = in.readString();
         search_location = in.readString();
     }
@@ -134,6 +154,8 @@ public class Doctor implements Parcelable {
         dest.writeString(phone_number);
         dest.writeString(type);
         dest.writeString(description);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
         dest.writeString(search_name);
         dest.writeString(search_location);
     }
