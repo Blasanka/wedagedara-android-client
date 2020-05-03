@@ -22,9 +22,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -33,8 +31,6 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.models.Doctor;
 import sinhalacoder.com.wedagedara.utils.BottomNavigationViewHelper;
-
-import static sinhalacoder.com.wedagedara.utils.Constants.MAPVIEW_BUNDLE_KEY;
 
 public class DoctorActivity extends AppCompatActivity {
 
@@ -169,7 +165,7 @@ public class DoctorActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (firebaseRecyclerAdapter !=null){
+        if (firebaseRecyclerAdapter !=null) {
             firebaseRecyclerAdapter.startListening();
         }
         mMapView.onStart();

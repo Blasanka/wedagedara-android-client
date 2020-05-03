@@ -112,27 +112,27 @@ public class DiseaseActivity extends AppCompatActivity {
         mDiseaseDatabase = FirebaseDatabase.getInstance().getReference("diseases");
         mSearchField = findViewById(R.id.search_field);
 
-        mSearchField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                assert im != null;
-                im.hideSoftInputFromWindow(mSearchField.getWindowToken(), 0);
+//        mSearchField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//                assert im != null;
+//                im.hideSoftInputFromWindow(mSearchField.getWindowToken(), 0);
+//
+//                if (hasFocus) bottomSheetDialog.show();
+//                else bottomSheetDialog.dismiss();
+//            }
+//        });
 
-                if (hasFocus) bottomSheetDialog.show();
-                else bottomSheetDialog.dismiss();
-            }
-        });
-
-        mSearchField.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                assert im != null;
-                im.hideSoftInputFromWindow(mSearchField.getWindowToken(), 0);
-                bottomSheetDialog.show();
-            }
-        });
+//        mSearchField.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//                assert im != null;
+//                im.hideSoftInputFromWindow(mSearchField.getWindowToken(), 0);
+//                bottomSheetDialog.show();
+//            }
+//        });
 
         ImageButton mSearchButton = findViewById(R.id.search_btn);
         mResultList = findViewById(R.id.result_list);

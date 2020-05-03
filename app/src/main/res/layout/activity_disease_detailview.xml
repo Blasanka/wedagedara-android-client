@@ -34,13 +34,15 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="නම" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/disease_name_label" />
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
                 android:textColor="@color/black"
+                android:lineSpacingExtra="5dp"
                 android:textSize="22sp" />
 
             <TextView
@@ -51,13 +53,15 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="විස්තර" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/description_label" />
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
                 android:textColor="@color/dark_grey"
+                android:lineSpacingExtra="5dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -68,7 +72,8 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="සෑදීමට අවහ්‍ය දේවල්" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/materials_to_pre_label" />
             <TextView
                 android:id="@+id/cause"
                 android:layout_width="match_parent"
@@ -76,6 +81,7 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/black"
+                android:lineSpacingExtra="5dp"
                 android:textSize="16sp" />
 
             <TextView
@@ -86,7 +92,8 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="සුව කර ගැනීමට පිළියම" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/cure_method_label" />
             <TextView
                 android:id="@+id/solution"
                 android:layout_width="match_parent"
@@ -94,6 +101,7 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/black"
+                android:lineSpacingExtra="5dp"
                 android:textSize="18sp" />
 
             <TextView
@@ -104,7 +112,8 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="අවශ්‍ය දේවල්" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/material_label" />
             <TextView
                 android:id="@+id/medication_goods"
                 android:layout_width="match_parent"
@@ -113,7 +122,7 @@
                 android:paddingBottom="20dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:lineSpacingExtra="4dp" />
+                android:lineSpacingExtra="5dp" />
 
             <TextView
                 android:id="@+id/prepare_method_label"
@@ -123,7 +132,8 @@
                 android:paddingBottom="2dp"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:text="සාදා ගන්නා ආකාරය" />
+                android:lineSpacingExtra="5dp"
+                android:text="@string/how_prepare_label" />
             <TextView
                 android:id="@+id/prepare_method"
                 android:layout_width="match_parent"
@@ -132,7 +142,7 @@
                 android:paddingBottom="20dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:lineSpacingExtra="4dp" />
+                android:lineSpacingExtra="5dp" />
 
             <Space
                 android:layout_width="match_parent"

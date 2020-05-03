@@ -55,4 +55,10 @@
     <string name="gaButtonLabel">ග</string>
     <string name="daButtonLabel">ද</string>
     <string name="delete_key">Delete key</string>
+    <string name="how_prepare_label">සාදා ගන්නා ආකාරය</string>
+    <string name="material_label">අවශ්‍ය දේවල්</string>
+    <string name="cure_method_label">සුව කර ගැනීමට පිළියම</string>
+    <string name="materials_to_pre_label">සෑදීමට අවහ්‍ය දේවල්</string>
+    <string name="description_label">විස්තර</string>
+    <string name="disease_name_label">නම</string>
 </resources>
