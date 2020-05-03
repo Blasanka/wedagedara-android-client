@@ -68,7 +68,7 @@
                 android:layout_height="200dp"
                 android:contentDescription="@string/image_item_selected"
                 android:paddingTop="4dp"
-                android:paddingBottom="2dp"
+                android:paddingBottom="8dp"
                 android:textSize="18sp" />
 
             <TextView

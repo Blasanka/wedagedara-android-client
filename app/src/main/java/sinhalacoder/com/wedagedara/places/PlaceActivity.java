@@ -42,9 +42,6 @@ import sinhalacoder.com.wedagedara.R;
 import sinhalacoder.com.wedagedara.doctors.GoogleMapHelper;
 import sinhalacoder.com.wedagedara.models.Place;
 import sinhalacoder.com.wedagedara.utils.BottomNavigationViewHelper;
-import sinhalacoder.com.wedagedara.utils.WedaGedaraAdapterNotifier;
-
-import static sinhalacoder.com.wedagedara.utils.Constants.MAPVIEW_BUNDLE_KEY;
 
 public class PlaceActivity extends AppCompatActivity {
 

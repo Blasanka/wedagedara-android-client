@@ -70,7 +70,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
             setTextViewValue(duration, place.getDuration());
             setTextViewValue(description, place.getDescription());
 
-            UniversalImageLoader.setImage(place.getImage_url(), itemImage, null, "https://");
+            UniversalImageLoader.setImage(place.getImage_url(), itemImage, null, "");
         }
     }
 
