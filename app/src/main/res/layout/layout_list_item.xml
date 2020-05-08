@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="95dp"
-    card_view:cardBackgroundColor="#FFF"
+    card_view:cardBackgroundColor="@color/appPrimaryColor"
     card_view:cardCornerRadius="10dp"
     card_view:cardElevation="2dp"
     android:layout_marginStart="30dp"
